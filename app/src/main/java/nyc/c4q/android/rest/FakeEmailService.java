@@ -64,7 +64,7 @@ public class FakeEmailService implements EmailService {
   @NonNull private Email generateNewRandomEmail() {
     // TODO - return a new email
     // hint: use RANDOM_PIC above
-    return null;
+    return emails.get(random.nextInt());
   }
 
   // utility method

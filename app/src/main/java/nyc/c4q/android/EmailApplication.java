@@ -43,14 +43,11 @@ public class EmailApplication extends Application {
         if (emailService.hasNewMail()) {
 
           // TODO
-
-
           // 1) get the most recent email and..
           // a) send a notification to the user notifying of the new email
           // b) use R.string.you_got_email as title
           // c) use R.string.notification_email_from (accounting for who sent the email)
           // d) when user clicks on notification, go to EmailDetailActivity
-
           List<Email> emails = emailService.getEmails();
           displayNotification(emails.get(0));
         }
@@ -65,9 +62,6 @@ public class EmailApplication extends Application {
 
   public void displayNotification(Email email){
     Intent detailIntent = new Intent(this, EmailDetailActivity.class);
-
-// Because clicking the notification opens a new ("special") activity, there's
-// no need to create an artificial back stack.
     PendingIntent resultPendingIntent =
             PendingIntent.getActivity(
                     this,
@@ -75,7 +69,6 @@ public class EmailApplication extends Application {
                     detailIntent,
                     PendingIntent.FLAG_UPDATE_CURRENT
             );
-
 
     NotificationCompat.Builder mBuilder =
             new NotificationCompat.Builder(this)
